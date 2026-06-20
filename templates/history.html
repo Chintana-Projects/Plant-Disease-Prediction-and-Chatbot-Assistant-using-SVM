@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <style>
+    .history-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .history-title{
+        margin: 0;
+        font-weight: bold;
+    }
+
+    .back-btn{
+        background: #6c757d;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .back-btn:hover{
+        background: #5a6268;
+    }
+
+    .clear-btn{
+        background: #dc3545;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .clear-btn:hover{
+        background: #c82333;
+    }
+    </style>
+</head>
+
+<body>
+
+<div class="main-card">
+
+    <!-- ✅ HEADER AT TOP -->
+    <div class="history-header">
+
+        <button onclick="goBack()" class="back-btn">⬅ Back</button>
+
+        <h2 class="history-title">📜 Prediction History</h2>
+
+        <button onclick="clearHistory()" class="clear-btn">
+            🗑 Clear History
+        </button>
+
+    </div>
+
+    <!-- ✅ HISTORY LIST -->
+    {% for item in history %}
+    <div class="history-card">
+
+        <img src="{{ url_for('static', filename=item[3]) }}">
+        <div class="history-text">
+            <h4>{{item[1]}}</h4>
+            <p><b>Cure:</b> {{item[2]}}</p>
+            <small>{{item[4]}}</small>
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+<script>
+function goBack(){
+    window.history.back();
+}
+
+function clearHistory(){
+    fetch("/clear-history")
+    .then(() => location.reload());
+}
+</script>
+
+</body>
+</html>

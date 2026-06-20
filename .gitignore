@@ -1,0 +1,17 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Model files
+*.pkl
+*.keras
+*.h5
+
+# Dataset
+dataset1/
+
+# VS Code
+.vscode/

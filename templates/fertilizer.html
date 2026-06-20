@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fertilizer Calculator</title>
+
+<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+<link rel="stylesheet" href="../static/css/style.css">
+
+<style>
+    .top-bar{
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+}
+
+.back-btn{
+    background: #1e1e2f;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;   /* 🔥 important */
+}
+
+/* 🔥 HOVER */
+.back-btn:hover{
+    background: #333;
+    transform: scale(1.08);
+}
+body{
+    background: linear-gradient(135deg, #e3f2fd, #f4f6f9);
+}
+
+.main-card{
+    width:50%;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.title{
+    font-size:26px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.result-box{
+    margin-top:20px;
+    padding:15px;
+    background:#e3f2fd;
+    border-left:5px solid blue;
+    border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+    <div class="top-bar">
+    <button onclick="goBack()" class="back-btn">⬅ Back</button>
+</div>
+
+<div class="main-card">
+
+<div class="title">🧪 Fertilizer Calculator</div>
+
+<select id="soil" class="form-select">
+    <option value="">🌾 Soil Type</option>
+    <option>Loamy</option>
+    <option>Sandy</option>
+    <option>Clay</option>
+    <option>Black Soil</option>
+    <option>Red Soil</option>
+</select>
+
+<select id="crop" class="form-select">
+    <option value="">🌱 Select Crop</option>
+    <option>Rice</option>
+    <option>Wheat</option>
+    <option>Maize</option>
+    <option>Groundnut</option>
+    <option>Vegetables</option>
+</select>
+
+<select id="fertilizer-type" class="form-select">
+    <option value="">🧪 Fertilizer Type</option>
+    <option>Organic</option>
+    <option>Chemical</option>
+    <option>Mixed</option>
+</select>
+
+<select id="irrigation" class="form-select">
+    <option value="">💧 Irrigation Type</option>
+    <option>Drip</option>
+    <option>Sprinkler</option>
+    <option>Flood</option>
+</select>
+
+<input type="number" id="area" class="form-control" placeholder="📏 Area (acres)">
+<button onclick="calculateFertilizer()" class="btn btn-primary mt-2">
+    Calculate
+</button>
+
+<div id="result" class="result-box"></div>
+
+</div>
+<script>
+function calculateFertilizer(){
+
+    let crop = document.getElementById("crop").value;
+    let area = document.getElementById("area").value;
+    let fertType = document.getElementById("fertilizer-type").value;
+
+    if(!crop || !area || !fertType){
+        alert("Please fill all fields");
+        return;
+    }
+
+    area = parseFloat(area);
+
+    // NPK base values per acre
+    let base = {
+        "Rice": [50,30,20],
+        "Wheat": [40,20,15],
+        "Maize": [60,25,20],
+        "Groundnut": [30,15,10],
+        "Vegetables": [70,40,30]
+    };
+
+    let values = base[crop] || [40,20,10];
+
+    let N = values[0] * area;
+    let P = values[1] * area;
+    let K = values[2] * area;
+
+    // 🔥 Fertilizer suggestions
+    let fertilizers = [];
+
+    if(fertType === "Organic"){
+        fertilizers = [
+            "Compost",
+            "Vermicompost",
+            "Neem Cake",
+            "Farmyard Manure"
+        ];
+    }
+    else if(fertType === "Chemical"){
+        fertilizers = [
+            "Urea (Nitrogen)",
+            "DAP (Phosphorus)",
+            "MOP (Potassium)",
+            "NPK 20-20-20"
+        ];
+    }
+    else if(fertType === "Mixed"){
+        fertilizers = [
+            "Compost + Urea",
+            "Vermicompost + DAP",
+            "Neem Cake + MOP"
+        ];
+    }
+
+    // OUTPUT
+    document.getElementById("result").innerHTML = `
+        <div style="font-size:18px;">
+            <b>🌱 Fertilizer Requirement:</b><br><br>
+
+            Nitrogen: <b>${N} kg</b><br>
+            Phosphorus: <b>${P} kg</b><br>
+            Potassium: <b>${K} kg</b><br><br>
+
+            <b>🧪 Recommended Fertilizers:</b><br>
+            ${fertilizers.map(f => "• " + f).join("<br>")}
+        </div>
+    `;
+}
+function goBack(){
+    window.history.back();
+}
+
+</script>
+</body>
+</html>

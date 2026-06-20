@@ -1,0 +1,731 @@
+/* ================= GLOBAL ================= */
+
+.carousel-text-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(3px);
+    text-align: center;
+}
+
+.carousel-text-title{
+    font-weight: bold;
+    font-size: 72px;
+    text-shadow: 4px 4px 4px #565257;
+}
+
+.form-box{
+    margin: auto;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+form{
+    margin: auto;
+}
+
+.input-box{
+    margin: 15px;
+}
+
+
+/* ================= RESULT BOX ================= */
+
+
+
+
+.result-img-container{
+    width: 260px;      /* Increase image size */
+    flex-shrink: 0;
+}
+
+.result-image{
+    width: 100%;
+    border-radius: 18px;
+}
+
+.result-text{
+    width: 75%;
+    color: black;
+    padding: 10px 20px;
+    text-align: left;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+/* TEXT */
+.result-text h3{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.result-text p{
+    font-size: 24px;
+    margin-bottom: 8px;
+    line-height: 1.8;
+}
+
+
+/* ================= DISEASE TAG (FIXED) ================= */
+
+
+.badge.disease-tag {
+    display: inline-block !important;   /* 🔥 prevents full width */
+    width: fit-content !important;      /* 🔥 shrink to content */
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+    border-radius: 20px !important;
+}
+
+.badge.bg-danger.disease-tag {
+    font-size: 12px !important;
+    padding: 3px 10px !important;
+    border-radius: 10px !important;
+
+    display: inline-block !important;
+    width: auto !important;
+
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+
+/* ================= BUTTON FIX ================= */
+
+.download-btn {
+    display: inline-block !important;
+    width: auto !important;
+    padding: 8px 18px !important;
+    font-size: 14px !important;
+    border-radius: 6px;
+
+    margin-top: 15px;
+}
+body{
+    background: linear-gradient(135deg, #e8f5e9, #f4f6f9);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ================= CHATBOT ================= */
+#chat-body div {
+    margin-bottom: 10px;
+}
+
+/* 🔥 Make "You:" and "Bot:" slightly bold */
+#chat-body b {
+    font-size: 16px;
+}
+#chatbot{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 300px;
+    height: 360px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 15px gray;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.chatbot-top{
+    top: 20px !important;
+    bottom: auto !important;
+}
+
+#chat-header{
+    background: green;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px 12px 0 0;
+}
+
+#chat-body{
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    color: black;
+    font-size: 14px;
+        line-height: 1.6;     /* 👈 better readability */
+    color: black;
+}
+
+#chat-input{
+    width: 100%;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    border-top: 1px solid #ccc;
+    outline: none;
+    color: black;
+}
+
+#quick-buttons{
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+}
+
+#quick-buttons button{
+    flex: 1;
+    font-size: 12px;
+    padding: 6px;
+    border: none;
+    background: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* ================= BACKGROUND ================= */
+
+.carousel-item{
+    width: 100vw;
+    height: 95vh;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    animation: changeFrame 40s ease-in-out infinite;
+}
+
+@keyframes changeFrame{
+    0% {background-image: url('../images/back1.jpg');}
+    20% {background-image: url('../images/back2.jpg');}
+    40% {background-image: url('../images/back3.webp');}
+    60% {background-image: url('../images/back4.jpg');}
+    80% {background-image: url('../images/back5.jpg');}
+    100% {background-image: url('../images/back1.jpg');}
+}
+/* 🔥 Bigger disease & cure text */
+.big-text {
+    font-size: 22px;       /* main text size */
+    line-height: 1.6;
+}
+
+/* 🔥 Make labels even bigger */
+.big-text b {
+    font-size: 24px;       /* "Disease:" and "Cure:" */
+    color: #2e7d32;        /* optional green highlight */
+}
+#chatbot button {
+    margin: 5px;
+    font-size: 14px;
+}
+.chat-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+#chat-input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* space for icon */
+    border: none;
+    border-top: 1px solid #ccc;
+    outline: none;
+    color: black;
+}
+
+.mic-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+}
+.main-card{
+    width: 55%;
+    margin: 80px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* TITLE */
+.title{
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+/* INPUT SPACING */
+.form-control, .form-select{
+    margin-bottom:18px;
+    height:50px;
+    border-radius:10px;
+    font-size:16px;
+}
+
+/* BUTTON */
+.btn-custom{
+    background: linear-gradient(135deg, #43a047, #2e7d32);
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    font-size:18px;
+    margin-top:10px;
+}
+
+/* RESULT */
+/* RESULT BOX */
+.result-box{
+    width: 90%;              /* Increase width */
+    max-width: 1100px;       /* Maximum width */
+    min-height: 300px;       /* Increase height */
+
+    margin: 30px auto;
+
+    display: flex;
+    align-items: center;     /* Center image & text vertically */
+    gap: 30px;
+
+    background: #e8f5e9;
+    border-left: 6px solid green;
+    border-radius: 18px;
+    padding: 25px 30px;      /* More inner spacing */
+
+    box-sizing: border-box;
+}
+.btn-custom {
+    margin-bottom: 15px;   /* 👈 pushes result box down */
+}
+.mic-icon:hover {
+    color: green;
+}
+.send-btn {
+    position: absolute;
+    right: 35px;   /* before mic */
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: green;
+    color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 14px;
+}
+#chat-input {
+    padding: 10px 70px 10px 10px; /* space for send + mic */
+}
+#dashboard-icon {
+    position: fixed;
+    top: 120px;
+    left: 15px;
+
+    width: 65px;          /* 🔥 bigger */
+    height: 65px;
+
+    background: #1e1e2f;
+color: #fff;
+
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;      /* 🔥 bigger icon */
+
+    cursor: pointer;
+    z-index: 1001;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* 🔥 glow */
+}
+
+#dashboard-icon:hover {
+    background: #333;
+    transform: scale(1.1);
+}
+
+#dashboard-panel {
+    position: fixed;
+    top: 80px;
+    left: -320px;
+    width: 300px;
+    height: 420px;
+    background: white;
+    border-radius: 10px;
+    z-index: 999;
+    transition: 0.3s;
+}
+
+#dashboard-panel.active {
+    left: 80px;   /* 👈 push it away from icon */
+}
+
+/* WHEN ACTIVE */
+#dashboard-panel.active {
+    left: 20px;   /* slide in */
+}
+
+/* HEADER */
+#dashboard-header {
+    background: green;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+.tooltip-text{
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: white;      /* 🔥 same as crop */
+    color: black;           /* 🔥 same text */
+
+    padding: 4px 8px;       /* 🔥 small box */
+    border-radius: 4px;
+
+    font-size: 12px;
+    white-space: nowrap;
+
+    border: 1px solid #ccc; /* subtle border */
+
+    transition: 0.2s;
+}
+
+/* SHOW ON HOVER */
+.icon-btn:hover .tooltip-text{
+    visibility: visible;
+    opacity: 1;
+}
+
+/* SHOW ON HOVER */
+.icon-btn:hover .tooltip-text{
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Show on hover */
+#dashboard-icon:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+.info-box {
+    margin-top: 12px;
+    padding: 15px;
+    background: #eef7f1;          /* light green */
+    border-left: 5px solid green; /* green line */
+    border-radius: 8px;
+    font-size: 18px;
+}
+.info-box ul {
+    padding-left: 20px;
+}
+
+.info-box li {
+    margin-bottom: 6px;
+}
+/* TOGGLE BUTTON */
+#toggle-btn{
+    position: fixed;
+    top: 70px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:1001;
+}
+
+/* HIDE ICONS */
+.hidden-icons{
+    display:none;
+}
+
+
+/* Optional hover */
+.crop-icon:hover{
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+}
+.quick-icons{
+    position: fixed;
+    top: 120px;
+    left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.icon-btn{
+    width: 60px;
+    height: 60px;
+    background: #1e1e2f;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 24px;
+    cursor:pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+.icon-btn:hover{
+    transform: scale(1.1);
+}
+
+/* Crop icon color */
+.crop-icon{
+    background: linear-gradient(135deg, #66bb6a, #2e7d32);
+}
+
+/* ===== FINAL WORKING GRID ===== */
+
+.crop-images{
+    margin-top: 25px;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
+    gap: 20px;
+    justify-items: center;
+}
+
+/* CARD */
+.crop-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* IMAGE (FIXED SIZE) */
+.crop-card img{
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* LABEL */
+.crop-card p{
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.result-title{
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.result-list{
+    text-align:center;
+    font-size:18px;
+}
+
+
+/* Fertilizer icon style */
+.fert-icon{
+    background: linear-gradient(135deg, #42a5f5, #1565c0);
+}
+
+/* Hover effect */
+.fert-icon:hover{
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #1e88e5, #0d47a1);
+}
+.top-bar{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-btn{
+    background: #1e1e2f;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.back-btn:hover{
+    background: #333;
+}
+.form-control, .form-select{
+    margin-bottom: 15px;
+    height: 48px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    transition: 0.2s;
+}
+
+.form-control:focus, .form-select:focus{
+    border-color: #2e7d32;
+    box-shadow: 0 0 5px rgba(46,125,50,0.3);
+}
+.btn-custom{
+    background: linear-gradient(135deg, #43a047, #1b5e20);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-custom:hover{
+    transform: scale(1.03);
+}
+/* Fertilizer icon style */
+.fertilizer-icon{
+    background: linear-gradient(135deg, #42a5f5, #1e88e5); /* blue tone */
+}
+
+/* 🔥 Hover effect */
+.fertilizer-icon:hover{
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #64b5f6, #1565c0);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+
+.fertilizer-icon:hover .tooltip-text{
+    visibility: visible;
+    opacity: 1;
+}
+/* 🔥 ICON HOVER (HOME PAGE) */
+.icon-btn{
+    width: 60px;
+    height: 60px;
+    background: #1e1e2f;
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 24px;
+    cursor:pointer;
+    color: white;
+    transition: all 0.3s ease;   /* 🔥 REQUIRED */
+}
+
+/* 🔥 HOVER EFFECT */
+.icon-btn:hover{
+    transform: scale(1.15);
+    background: #333;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+.fertilizer-icon{
+    background: linear-gradient(135deg, #42a5f5, #1565c0);
+}
+
+.fertilizer-icon:hover{
+    background: linear-gradient(135deg, #1e88e5, #0d47a1);
+}
+.history-card{
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f1f8f4;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.history-img{
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.history-text h4{
+    margin: 0;
+    font-size: 20px;
+}
+
+.history-text p{
+    margin: 5px 0;
+}
+.history-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Title center */
+.history-title{
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Back button (left) */
+.back-btn{
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.back-btn:hover{
+    background: #5a6268;
+}
+
+/* Clear button (right) */
+.clear-btn{
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.clear-btn:hover{
+    background: #c82333;
+}
+.history-card img {
+    width: 120px;        /* 🔥 reduce size */
+    height: 100px;
+    object-fit: cover;   /* keep it neat */
+    border-radius: 10px;
+}
+.history-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #eef5f0;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Plant Dashboard</title>
+<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+<style>
+body{
+    background:#f4f6f9;
+    font-size:18px;   /* 🔥 increased base text */
+}
+
+.navbar{
+    background:#1e1e2f;
+    color:white;
+    padding:15px;
+    font-size:20px;
+}
+
+.dashboard-container{
+    width:85%;
+    margin:30px auto;
+}
+
+.card-box{
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    margin-bottom:25px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+h4{
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.output-box{
+    margin-top:12px;
+    padding:15px;
+    background:#f1f8f4;
+    border-left:5px solid green;
+    border-radius:8px;
+    font-size:18px;
+    white-space: pre-line;
+}
+
+select{
+    font-size:17px;
+    padding:8px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="navbar">
+    <a href="/" class="btn btn-light btn-sm">⬅ Back</a>
+    <span style="float:right;">🌱 Plant Dashboard</span>
+</div>
+
+<div class="dashboard-container">
+
+    <!-- 🌿 TIPS -->
+    <div class="card-box">
+        <h4>🌿 Daily Plant Tips</h4>
+        <div id="tips-box" class="output-box">
+            💧 Water early morning
+        </div>
+    </div>
+
+    <!-- 🌱 CARE -->
+    <div class="card-box">
+        <h4>🌱 Plant Care Guide</h4>
+
+        <select class="form-select" onchange="showCare()" id="plantSelect">
+            <option value="">Select Plant</option>
+            <option value="tomato">Tomato</option>
+            <option value="potato">Potato</option>
+            <option value="cherry">Cherry</option>
+            <option value="rice">Rice</option>
+            <option value="wheat">Wheat</option>
+            <option value="corn">Corn</option>
+            <option value="banana">Banana</option>
+            <option value="apple">Apple</option>
+        </select>
+
+        <div id="care-box" class="output-box"></div>
+    </div>
+
+    <!-- 🧪 FERTILIZER -->
+    <div class="card-box">
+        <h4>🧪 Fertilizer Recommendation</h4>
+
+        <select class="form-select" onchange="showFertilizer()" id="cropSelect">
+            <option value="">Select Crop</option>
+            <option value="tomato">Tomato</option>
+            <option value="potato">Potato</option>
+            <option value="cherry">Cherry</option>
+            <option value="rice">Rice</option>
+            <option value="wheat">Wheat</option>
+            <option value="corn">Corn</option>
+            <option value="banana">Banana</option>
+            <option value="apple">Apple</option>
+        </select>
+
+        <div id="fertilizer-box" class="output-box"></div>
+    </div>
+
+    <!-- 📷 UPLOAD -->
+    <div class="card-box">
+        <h4>📷 Upload Guide</h4>
+        <div class="info-box">
+    <ul>
+        <li>✔ Take clear close-up images of affected leaves</li>
+        <li>✔ Use natural lighting (avoid shadows)</li>
+        <li>✔ Avoid blurry or shaky images</li>
+        <li>✔ Capture both healthy & affected areas</li>
+        <li>✔ Keep background simple</li>
+    </ul>
+</div>
+    </div>
+
+    <!-- 🌡️ PREVENTION -->
+      <div class="card-box">
+                <h4>Prevention</h4>
+
+    <div class="info-box">
+    <ul>
+        <li>🌬 Maintain proper air circulation</li>
+        <li>💧 Avoid overwatering and waterlogging</li>
+        <li>🌱 Use disease-resistant seeds</li>
+        <li>🧹 Clean tools and surroundings regularly</li>
+        <li>☀ Ensure proper sunlight exposure</li>
+        <li>🪴 Rotate crops to prevent soil diseases</li>
+    </ul>
+</div>
+    </div>
+
+</div>
+
+<script>
+
+// 🌿 ROTATING TIPS
+const tips = [
+ "💧 Water early morning to reduce evaporation",
+ "☀️ Avoid harsh afternoon sunlight",
+ "🌱 Add compost every 2 weeks",
+ "🍂 Remove infected leaves immediately",
+ "🌬 Maintain airflow to prevent fungus",
+ "🧪 Use balanced fertilizers",
+ "🌾 Rotate crops for healthy soil"
+];
+
+setInterval(()=>{
+ document.getElementById("tips-box").innerText =
+  tips[Math.floor(Math.random()*tips.length)];
+},3000);
+
+
+// 🌱 CARE DATA (EXPANDED)
+const plantCare = {
+ tomato: "💧 Daily watering\n☀ Full sun\n🌡 20-30°C\n🌱 Fertile well-drained soil",
+ potato: "💧 Moderate watering\n☀ Partial sun\n🌱 Loose soil\n🪴 Avoid waterlogging",
+ cherry: "💧 Light watering\n☀ Full sun\n✂ Prune regularly",
+ rice: "💧 Requires flooded conditions\n☀ Full sun\n🌡 Warm climate",
+ wheat: "💧 Moderate watering\n☀ Full sun\n🌱 Well-drained soil",
+ corn: "💧 Regular watering\n☀ Full sun\n🌱 Nitrogen-rich soil",
+ banana: "💧 Heavy watering\n☀ Full sun\n🌱 Rich organic soil",
+ apple: "💧 Moderate watering\n☀ Cool climate\n✂ Regular pruning"
+};
+
+function showCare(){
+ let plant = document.getElementById("plantSelect").value;
+ document.getElementById("care-box").innerText = plantCare[plant] || "";
+}
+
+
+// 🧪 FERTILIZER DATA (EXPANDED)
+const fertilizerData = {
+ tomato: "🌱 Growth: NPK 10-10-10\n🍅 Fruiting: 5-10-10\n🧪 Add calcium",
+ potato: "🌱 Early: Nitrogen rich\n🥔 Tuber: High potassium (5-10-15)",
+ cherry: "🌸 Balanced fertilizer\n🍒 Potassium boost\n🧪 Every 2 weeks",
+ rice: "🌾 Nitrogen rich fertilizer\n💧 Apply in split doses",
+ wheat: "🌱 Nitrogen + phosphorus\n🌾 Apply during early growth",
+ corn: "🌽 High nitrogen fertilizer\n🧪 Side-dress during growth",
+ banana: "🍌 High potassium\n🌱 Organic compost recommended",
+ apple: "🍎 Balanced NPK\n🌱 Add compost yearly"
+};
+
+function showFertilizer(){
+ let crop = document.getElementById("cropSelect").value;
+ document.getElementById("fertilizer-box").innerText = fertilizerData[crop] || "";
+}
+
+</script>
+
+</body>
+</html>

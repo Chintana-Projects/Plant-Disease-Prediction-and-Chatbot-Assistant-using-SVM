@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Disease Recognition</title>
+
+<link rel="icon" href="../static/images/logo.svg">
+<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+<link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+<div class="top-bar">
+    <button onclick="goBack()" class="back-btn">⬅ Back</button>
+</div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <img src="../static/images/logo (1).svg" width="40">
+    </div>
+</nav>
+<div class="quick-icons">
+
+    <!-- Dashboard -->
+    <div class="icon-btn" onclick="goDashboard()" title="Open Dashboard">📊</div>
+
+    <!-- Crop Recommendation -->
+    <div class="icon-btn crop-icon" onclick="goCrop()" title="Crop Recommendation">🌱</div>
+
+    <!-- ✅ NEW Fertilizer Icon -->
+<div class="icon-btn fertilizer-icon" onclick="location.href='/fertilizer'">
+    🧪
+        <span class="tooltip-text">Fertilizer Calculator</span>
+    </div>
+    <div class="icon-btn" onclick="window.location.href='/history'">
+    📜
+    <span class="tooltip-text">History</span>
+</div>
+
+</div>
+
+<!-- BACKGROUND -->
+<div class="carousel-item active">
+<div class="carousel-text-wrapper">
+
+<h1 class="carousel-text-title">Plant Disease Recognition</h1>
+
+<!-- LOADING -->
+<div id="loading" style="display:none; color:white; font-weight:bold; font-size:20px;">
+    ⏳ Processing image...
+</div>
+
+<!-- UPLOAD FORM -->
+<div class="form-box">
+<form action="/upload/" method="POST" enctype="multipart/form-data" onsubmit="showLoading()">
+
+<h2>Upload Image</h2>
+
+<div class="input-box">
+<input type="file" name="img" required>
+</div>
+
+<div class="input-box">
+<button type="submit" class="btn btn-success">Upload</button>
+</div>
+
+</form>
+</div>
+
+<!-- RESULT -->
+{% if result %}
+<div class="result-container">
+<div class="result-box">
+
+<div class="result-img-container">
+    <img src="{{ image_path }}" class="result-image">
+</div>
+
+<div class="result-text">
+
+{% if "healthy" in prediction['name'].lower() %}
+<span class="badge bg-success disease-tag">🌿 Healthy</span>
+{% else %}
+<span class="badge bg-danger disease-tag">🦠 Diseased</span>
+{% endif %}
+
+<h3>{{prediction['name']}}</h3>
+
+<p class="disease-text"><b>Disease:</b> {{prediction['cause']}}</p>
+<p class="cure-text"><b>Cure:</b> {{prediction['cure']}}</p>
+
+<a href="/download-report" class="btn btn-primary download-btn">
+    Download Report
+</a>
+
+</div>
+</div>
+</div>
+{% endif %}
+
+</div>
+</div>
+
+<!-- CHATBOT -->
+<div id="chatbot" class="{% if result %}chatbot-top{% endif %}">
+
+    <div id="chat-header">🌱 Plant Assistant</div>
+
+    <div id="chat-body"></div>
+
+    <div id="quick-buttons">
+        <button onclick="ask('What is the cure?')">Cure</button>
+        <button onclick="ask('What caused this disease?')">Cause</button>
+    </div>
+
+    <div class="chat-input-wrapper">
+        <input id="chat-input" placeholder="Ask something...">
+        <span class="mic-icon" onclick="startVoice()">🎤</span>
+        <button onclick="manualSend()" class="send-btn">➤</button>
+    </div>
+
+</div>
+
+<!-- AUDIO -->
+<audio id="micSound" src="../static/sounds/beep.mp3" preload="auto"></audio>
+
+<!-- JS -->
+<script>
+
+    
+function goBack(){
+    window.location.href = "/";
+}
+function goToFertilizer(){
+    window.location.href = "/fertilizer";
+} 
+function goCrop(){
+    window.location.href = "/crop";
+}
+
+
+function toggleIcons(){
+    const icons = document.querySelector(".quick-icons");
+    icons.classList.toggle("hidden-icons");
+}
+function goDashboard(){
+    window.location.href = "/dashboard";
+}
+
+const input = document.getElementById("chat-input");
+const chatBody = document.getElementById("chat-body");
+
+function showLoading(){
+    document.getElementById("loading").style.display = "block";
+}
+
+function sendMessage(message) {
+    if (message.trim() === "") return;
+
+    chatBody.innerHTML += "<div><b>You:</b> " + message + "</div>";
+
+    fetch("/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message: message})
+    })
+    .then(res => res.json())
+    .then(data => {
+        chatBody.innerHTML += "<div><b>Bot:</b> " + data.response + "</div>";
+        chatBody.scrollTop = chatBody.scrollHeight;
+    });
+
+    input.value = "";
+}
+
+function manualSend() {
+    sendMessage(input.value);
+}
+
+input.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        manualSend();
+    }
+});
+
+function ask(text){
+    input.value = text;
+    input.focus();
+}
+
+function startVoice() {
+    document.getElementById("micSound").play();
+
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = "en-US";
+    recognition.start();
+
+    recognition.onresult = function(event) {
+        input.value = event.results[0][0].transcript;
+    };
+}
+</script>
+
+</body>
+</html>

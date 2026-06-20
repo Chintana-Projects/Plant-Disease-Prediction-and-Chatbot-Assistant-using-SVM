@@ -1,0 +1,209 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Crop Recommendation</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+    body{
+        background: linear-gradient(135deg, #e8f5e9, #f4f6f9);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* NAVBAR */
+    .navbar{
+        background:#1e1e2f;
+        padding:10px 20px;
+    }
+    .back-btn{
+        background:white;
+        border-radius:20px;
+        padding:5px 12px;
+        font-size:14px;
+    }
+
+    /* CARD */
+    .main-card{
+        width:60%;
+        margin:40px auto;
+        background:white;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    /* TITLE */
+    .title{
+        font-size:28px;
+        font-weight:bold;
+        margin-bottom:20px;
+    }
+
+    /* INPUT */
+    .form-control, .form-select{
+        margin-bottom:12px;
+        height:45px;
+        border-radius:8px;
+    }
+
+    /* BUTTON */
+    .btn-custom{
+        background: linear-gradient(135deg, #43a047, #2e7d32);
+        color:white;
+        border:none;
+        padding:10px 20px;
+        border-radius:8px;
+        font-size:16px;
+    }
+    .btn-custom:hover{
+        opacity:0.9;
+    }
+
+    /* RESULT */
+    .result-box{
+        margin-top:20px;
+        padding:15px;
+        background:#e8f5e9;
+        border-left:5px solid green;
+        border-radius:8px;
+        font-size:16px;
+    }
+    </style>
+    </head>
+
+    <body>
+
+    <!-- NAVBAR -->
+    <div class="navbar d-flex justify-content-between align-items-center">
+        <button onclick="goBack()" class="back-btn">⬅ Back</button>
+        <span style="color:white;">🌱 Crop Recommendation</span>
+    </div>
+
+    <!-- MAIN CARD -->
+    <div class="main-card">
+
+    <div class="title">🌱 Crop Recommendation System</div>
+
+    <!-- INPUTS -->
+    <select id="soil" class="form-select">
+        <option value="">🌾 Select Soil Type</option>
+        <option>Loamy</option>
+        <option>Sandy</option>
+        <option>Clay</option>
+        <option>Black Soil</option>
+        <option>Red Soil</option>
+    </select>
+
+    <select id="weather" class="form-select">
+        <option value="">🌦 Select Weather</option>
+        <option>Hot</option>
+        <option>Moderate</option>
+        <option>Cold</option>
+    </select>
+
+    <select id="season" class="form-select">
+        <option value="">🍂 Select Season</option>
+        <option>Summer</option>
+        <option>Winter</option>
+        <option>Monsoon</option>
+    </select>
+
+    <input type="number" id="temp" class="form-control" placeholder="🌡 Temperature (°C)">
+
+    <input type="number" id="rain" class="form-control" placeholder="🌧 Rainfall (mm)">
+
+    <input type="text" id="location" class="form-control" placeholder="📍 Enter Location">
+
+    <button onclick="getCrop()" class="btn btn-custom">
+        🌱 Get Recommendation
+    </button>
+
+    <!-- RESULT -->
+    <div id="result" class="result-box"></div>
+<div id="crop-images" class="crop-images"></div>
+    </div>
+
+    <script>
+
+    function goBack(){
+        window.location.href = "/";
+    }
+
+
+ function getCrop(){
+
+    let soil = document.getElementById("soil").value;
+    let weather = document.getElementById("weather").value;
+    let season = document.getElementById("season").value;
+    let temp = document.getElementById("temp").value;
+    let rain = document.getElementById("rain").value;
+
+    let crops = [];
+    let images = [];
+
+    // 🌾 LOGIC BASED ON CONDITIONS
+
+    if(season === "Monsoon"){
+        crops = ["Rice","Maize","Cotton","Sugarcane"];
+        images = ["rice.jpg","maize.jpg","cotton.jpg","sugarcane.jpg"];
+    }
+    else if(season === "Winter"){
+        crops = ["Wheat","Spinach","Peas","Mustard"];
+        images = ["wheat.jpg","spinach.jpg","peas.jpg","mustard.jpg"];
+    }
+    else if(season === "Summer"){
+        crops = ["Watermelon","Cucumber","Tomato","Groundnut"];
+        images = ["watermelon.jpg","cucumber.pg.jpg","tomato.jpg","groundnut.jpg"];
+    }
+
+    // 🌱 SOIL BASED ADJUSTMENT
+    if(soil === "Sandy"){
+        crops = ["Groundnut","Watermelon","Coconut","Cucumber"];
+        images = ["groundnut.jpg","watermelon.jpg","coconut.jpg","cucumber.pg.jpg"];
+    }
+
+    if(soil === "Clay"){
+        crops = ["Rice","Spinach","Wheat","Broccoli"];
+        images = ["rice.jpg","spinach.jpg","wheat.jpg","brocolli.jpg"];
+    }
+
+    // 🌡 TEMP BASED EXTRA LOGIC
+    if(temp > 30){
+        crops = ["Watermelon","Cucumber","Maize","Tomato"];
+        images = ["watermelon.jpg","cucumber.pg.jpg","maize.jpg","tomato.jpg"];
+    }
+
+    // 🌧 HIGH RAINFALL
+    if(rain > 200){
+        crops = ["Rice","Sugarcane","Cotton","Maize"];
+        images = ["rice.jpg","sugarcane.jpg","cotton.jpg","maize.jpg"];
+    }
+
+    // ✅ SHOW RESULT TEXT
+    document.getElementById("result").innerHTML = `
+        <div class="result-title">🌱 Recommended Crops</div>
+        <div class="result-list">${crops.join(", ")}</div>
+    `;
+
+    // ✅ SHOW IMAGES
+    let imgHTML = "";
+
+    for(let i=0; i<Math.min(crops.length, 4); i++){
+        imgHTML += `
+            <div class="crop-card">
+                <img src="/static/images/${images[i]}" alt="${crops[i]}">
+                <p>${crops[i]}</p>
+            </div>
+        `;
+    }
+
+    const container = document.getElementById("crop-images");
+    container.innerHTML = imgHTML;
+    container.style.display = "grid";
+}
+    
+    </script>
+
+    </body>
+    </html>
