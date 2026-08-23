@@ -1,872 +1,1255 @@
 {
   "intents": [
 
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi",
+        "hii",
+        "hello",
+        "hey",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "hello plant assistant",
+        "hi plant assistant",
+        "hey there"
+      ],
+      "responses": [
+        "Hello 🌿 How can I help with your plant today?",
+        "Hi 🌱 Upload a plant image or tell me about your plant problem.",
+        "Hey 🌿 I can help you understand plant diseases, symptoms, causes, and treatments."
+      ]
+    },
 
     {
       "tag": "goodbye",
-      "patterns": ["bye", "see you", "goodbye"],
-      "responses": ["Goodbye! 🌱 Take care of your plants."]
+      "patterns": [
+        "bye",
+        "goodbye",
+        "see you",
+        "see you later",
+        "talk to you later",
+        "exit"
+      ],
+      "responses": [
+        "Goodbye! 🌱 Take care of your plants.",
+        "See you later! 🌿 Keep your plants healthy!",
+        "Goodbye! Hope your plant feels better soon 🌱"
+      ]
     },
 
     {
       "tag": "thanks",
-      "patterns": ["thanks", "thank you", "thx", "thanks a lot"],
-      "responses": ["You're welcome! 😊", "Happy to help! 🌱"]
+      "patterns": [
+        "thanks",
+        "thank you",
+        "thanks a lot",
+        "thank u",
+        "thx",
+        "many thanks",
+        "thank you so much"
+      ],
+      "responses": [
+        "You're welcome! 🌱",
+        "Happy to help! 🌿",
+        "You're welcome! Take good care of your plants 😊"
+      ]
     },
 
     {
       "tag": "confirmation",
-      "patterns": ["ok", "okay", "fine", "alright", "got it"],
-      "responses": ["Great! 😊 Let me know how I can help further."]
+      "patterns": [
+        "ok",
+        "okay",
+        "fine",
+        "alright",
+        "got it",
+        "understood",
+        "sure",
+        "yes",
+        "okay thanks"
+      ],
+      "responses": [
+        "Great! 😊 Let me know if you need anything else.",
+        "Alright! 🌱 I'm here whenever you need help."
+      ]
     },
 
     {
       "tag": "positive_feedback",
-      "patterns": ["nice", "good", "great", "awesome", "cool", "perfect"],
-      "responses": ["Glad you liked it! 😊", "Awesome! I'm here to help 🌿"]
+      "patterns": [
+        "nice",
+        "good",
+        "great",
+        "awesome",
+        "cool",
+        "perfect",
+        "excellent",
+        "amazing",
+        "helpful",
+        "very helpful"
+      ],
+      "responses": [
+        "Glad I could help! 🌿",
+        "Awesome! 😊 I'm happy to help.",
+        "Thank you! 🌱"
+      ]
     },
 
     {
       "tag": "upload_help",
       "patterns": [
         "how to upload image",
+        "how do i upload an image",
         "upload image",
+        "upload photo",
         "how can i upload photo",
         "where to upload",
-        "how to use this"
+        "how to use this",
+        "how do i use this",
+        "how does this work",
+        "how to scan plant",
+        "how to check my plant"
       ],
       "responses": [
-        "To upload an image 🌿, click the upload button, select a leaf image, and submit it."
+        "To check your plant 🌿, click the upload button, select a clear plant or leaf image, and submit it. The system will analyze the image and display the predicted result."
       ]
     },
 
-{
-  "tag": "plant_problem",
-  "patterns": [
-    "plant problem",
-    "my plant has a problem",
-    "plant issue",
-    "something is wrong with my plant",
-    "my plant is sick",
-    "plant disease",
-    "help with my plant",
-    "leaf problem",
-    "yellow leaves",
-    "brown spots",
-    "my leaves are turning yellow",
-    "plant is dying",
-    "my plant looks bad",
-    "there are spots on leaves",
-    "leaves are falling",
-    "plant not growing",
-    "my leaf is brown"
-  ],
-  "responses": [
-    "Can you describe the symptoms or upload a plant image? 🌱"
-  ]
-},
-{
-  "tag": "yellow_leaves",
-  "patterns": [
-    "leaves are yellow",
-    "yellow leaves",
-    "leaf turning yellow",
-    "yellowing leaves",
-    "yellow plant",
-    "yellow plants",
-    "plant is yellow",
-    "my plant is yellow",
-    "plant turning yellow",
-    "entire plant yellow"
-  ],
-  "responses": [
-    "Yellow leaves may indicate overwatering or nutrient deficiency 🌱"
-  ],
-  "cause": "Usually caused by overwatering, nutrient deficiency, or poor drainage.",
-  "cure": "Reduce watering and use nitrogen-rich fertilizer."
-},
-
-  {
-    "tag": "powdery_mildew",
-    "patterns": [
-      "powdery mildew",
-      "white powder on leaves",
-      "white fungus on plant"
-    ],
-    "responses": [
-      "Powdery mildew appears as white powder on leaves."
-    ],
-    "cause": "Caused by fungal growth in humid and poorly ventilated conditions.",
-    "cure": "Apply sulfur fungicide and improve airflow."
-  },
-
-  {
-    "tag": "rust_disease",
-    "patterns": [
-      "rust disease",
-      "orange spots on leaves",
-      "brown rust spots"
-    ],
-    "responses": [
-      "Rust disease causes orange or rusty spots on leaves."
-    ],
-    "cause": "Caused by fungal infection in moist environments.",
-    "cure": "Remove infected leaves and apply fungicide."
-  },
-
-  {
-    "tag": "leaf_blight",
-    "patterns": [
-      "leaf blight",
-      "brown leaf edges",
-      "dry leaf tips"
-    ],
-    "responses": [
-      "Leaf blight causes browning and drying of leaves."
-    ],
-    "cause": "Caused by fungal or bacterial infection.",
-    "cure": "Use copper fungicide and avoid overwatering."
-  },
-
-  {
-    "tag": "bacterial_spot",
-    "patterns": [
-      "bacterial spot",
-      "small dark spots on leaves"
-    ],
-    "responses": [
-      "Bacterial spot creates dark lesions on leaves."
-    ],
-    "cause": "Spread through contaminated water and tools.",
-    "cure": "Remove infected leaves and use copper-based spray."
-  },
-
-  {
-    "tag": "early_blight",
-    "patterns": [
-      "early blight",
-      "brown rings on leaves",
-      "target like spots"
-    ],
-    "responses": [
-      "Early blight causes concentric brown rings on leaves."
-    ],
-    "cause": "Caused by fungal infection in warm humid weather.",
-    "cure": "Apply fungicide and prune infected areas."
-  },
-
-  {
-    "tag": "late_blight",
-    "patterns": [
-      "late blight",
-      "plant rotting fast",
-      "black watery spots"
-    ],
-    "responses": [
-      "Late blight spreads rapidly and damages leaves and stems."
-    ],
-    "cause": "Caused by water mold in cool wet conditions.",
-    "cure": "Remove infected plants and apply fungicide immediately."
-  },
-
-  {
-    "tag": "leaf_mold",
-    "patterns": [
-      "leaf mold",
-      "yellow patches on leaves",
-      "fuzzy mold under leaves"
-    ],
-    "responses": [
-      "Leaf mold creates yellow patches and fuzzy growth."
-    ],
-    "cause": "Caused by fungal spores in humid conditions.",
-    "cure": "Improve ventilation and apply fungicide."
-  },
-
-  {
-    "tag": "septoria_leaf_spot",
-    "patterns": [
-      "septoria leaf spot",
-      "tiny brown spots",
-      "dark bordered spots"
-    ],
-    "responses": [
-      "Septoria leaf spot causes tiny brown lesions."
-    ],
-    "cause": "Caused by fungal infection during wet weather.",
-    "cure": "Remove infected leaves and avoid overhead watering."
-  },
-
-  {
-    "tag": "spider_mites",
-    "patterns": [
-      "spider mites",
-      "tiny webs on leaves",
-      "yellow specks on leaves"
-    ],
-    "responses": [
-      "Spider mites suck sap and damage leaves."
-    ],
-    "cause": "Caused by mite infestation in dry conditions.",
-    "cure": "Spray neem oil or insecticidal soap."
-  },
-
-  {
-    "tag": "target_spot",
-    "patterns": [
-      "target spot",
-      "circular leaf spots",
-      "ring shaped spots"
-    ],
-    "responses": [
-      "Target spot creates circular lesions on leaves."
-    ],
-    "cause": "Caused by fungal pathogens in warm climates.",
-    "cure": "Apply fungicide and remove infected foliage."
-  },
-
-  {
-    "tag": "mosaic_virus",
-    "patterns": [
-      "mosaic virus",
-      "yellow green patches",
-      "mottled leaves"
-    ],
-    "responses": [
-      "Mosaic virus causes patchy leaf discoloration."
-    ],
-    "cause": "Spread by infected insects and contaminated tools.",
-    "cure": "Remove infected plants and control insect vectors."
-  },
-
-  {
-    "tag": "leaf_curl_virus",
-    "patterns": [
-      "leaf curl virus",
-      "leaves curling up",
-      "twisted leaves"
-    ],
-    "responses": [
-      "Leaf curl virus causes curling and yellowing."
-    ],
-    "cause": "Spread mainly by whiteflies.",
-    "cure": "Use insecticides and remove infected leaves."
-  },
-
-  {
-    "tag": "black_spot",
-    "patterns": [
-      "black spot",
-      "dark spots on leaves"
-    ],
-    "responses": [
-      "Black spot is a fungal disease causing dark spots."
-    ],
-    "cause": "Caused by fungal infection in humid conditions.",
-    "cure": "Use fungicide and remove infected leaves."
-  },
-
-  {
-    "tag": "downy_mildew",
-    "patterns": [
-      "downy mildew",
-      "yellow patches",
-      "fuzzy underside leaves"
-    ],
-    "responses": [
-      "Downy mildew causes yellow patches and mold growth."
-    ],
-    "cause": "Caused by fungus-like organisms in cool humid weather.",
-    "cure": "Improve airflow and apply fungicide."
-  },
-
-  {
-    "tag": "fusarium_wilt",
-    "patterns": [
-      "fusarium wilt",
-      "plant wilting suddenly",
-      "yellow wilt"
-    ],
-    "responses": [
-      "Fusarium wilt blocks water transport in plants."
-    ],
-    "cause": "Caused by soil-borne fungal infection.",
-    "cure": "Remove infected plants and rotate crops."
-  },
-
-  {
-    "tag": "verticillium_wilt",
-    "patterns": [
-      "verticillium wilt",
-      "one side wilting",
-      "uneven wilting"
-    ],
-    "responses": [
-      "Verticillium wilt causes one-sided plant wilting."
-    ],
-    "cause": "Caused by fungal infection in soil.",
-    "cure": "Improve soil health and remove infected plants."
-  },
-
-  {
-    "tag": "soft_rot",
-    "patterns": [
-      "soft rot",
-      "mushy stem",
-      "rotting plant tissue"
-    ],
-    "responses": [
-      "Soft rot makes plant tissue soft and watery."
-    ],
-    "cause": "Caused by bacterial infection in wet conditions.",
-    "cure": "Remove infected areas and improve drainage."
-  },
-
-  {
-    "tag": "fire_blight",
-    "patterns": [
-      "fire blight",
-      "burnt leaves",
-      "blackened branches"
-    ],
-    "responses": [
-      "Fire blight makes plants appear scorched."
-    ],
-    "cause": "Caused by bacterial infection in warm wet weather.",
-    "cure": "Prune infected branches and disinfect tools."
-  },
-
-  {
-    "tag": "root_rot",
-    "patterns": [
-      "root rot",
-      "roots turning black",
-      "wilting roots"
-    ],
-    "responses": [
-      "Root rot damages roots and causes wilting."
-    ],
-    "cause": "Caused by overwatering and poor drainage.",
-    "cure": "Reduce watering and improve soil drainage."
-  },
-
-  {
-    "tag": "anthracnose",
-    "patterns": [
-      "anthracnose",
-      "sunken dark spots",
-      "dead patches on leaves"
-    ],
-    "responses": [
-      "Anthracnose causes dark sunken lesions on leaves."
-    ],
-    "cause": "Caused by fungal infection during rainy weather.",
-    "cure": "Remove infected leaves and apply fungicide."
-  },
-  {
-    "tag": "brown_spots",
-    "patterns": [
-      "brown spots on leaves",
-      "leaf has brown spots",
-      "brown patches on leaves",
-      "spots on leaves"
-    ],
-    "responses": [
-      "Brown spots may indicate fungal infection or leaf spot disease 🍂"
-    ],
-    "cause": "Usually caused by fungi, bacteria, or excess moisture.",
-    "cure": "Remove infected leaves and apply fungicide."
-  },
-
-  {
-    "tag": "wilting",
-    "patterns": [
-      "plant is wilting",
-      "wilting leaves",
-      "plant drooping",
-      "leaves are drooping"
-    ],
-    "responses": [
-      "Wilting may be caused by root damage or underwatering 🌿"
-    ],
-    "cause": "Caused by root rot, drought stress, or heat stress.",
-    "cure": "Check soil moisture and inspect roots for rot."
-  },
-
-  {
-    "tag": "leaf_blight",
-    "patterns": [
-      "leaf blight",
-      "dry brown leaf edges",
-      "leaf edges turning brown",
-      "dry leaves"
-    ],
-    "responses": [
-      "Leaf blight causes browning and drying of leaves 🍂"
-    ],
-    "cause": "Usually caused by fungal or bacterial infection.",
-    "cure": "Remove infected leaves and use copper fungicide."
-  },
-
-  {
-    "tag": "powdery_mildew",
-    "patterns": [
-      "powdery mildew",
-      "white powder on leaves",
-      "white spots on leaves",
-      "powder on leaves"
-    ],
-    "responses": [
-      "Powdery mildew appears as white powder on leaves 🌱"
-    ],
-    "cause": "Caused by fungal growth in humid conditions.",
-    "cure": "Apply sulfur fungicide and improve airflow."
-  },
-
-  {
-    "tag": "rust_disease",
-    "patterns": [
-      "rust disease",
-      "orange spots on leaves",
-      "rusty spots",
-      "orange patches on leaves"
-    ],
-    "responses": [
-      "Rust disease causes orange or brown spots on leaves 🍁"
-    ],
-    "cause": "Caused by fungal spores in humid environments.",
-    "cure": "Use fungicide and avoid wetting leaves."
-  },
-
-  {
-    "tag": "root_rot",
-    "patterns": [
-      "root rot",
-      "roots are black",
-      "plant roots rotting",
-      "roots smell bad"
-    ],
-    "responses": [
-      "Root rot damages roots and causes yellowing 🌱"
-    ],
-    "cause": "Overwatering and poor drainage cause root rot.",
-    "cure": "Reduce watering and improve soil drainage."
-  },
-
-  {
-    "tag": "leaf_curl",
-    "patterns": [
-      "leaves curling",
-      "curled leaves",
-      "leaf curl",
-      "leaves folding"
-    ],
-    "responses": [
-      "Leaf curl may indicate viral infection or heat stress 🌿"
-    ],
-    "cause": "Caused by viruses, pests, or environmental stress.",
-    "cure": "Remove infected leaves and control insects."
-  },
-
-  {
-    "tag": "black_spot",
-    "patterns": [
-      "black spots on leaves",
-      "dark spots on leaves",
-      "black patches",
-      "leaf has black marks"
-    ],
-    "responses": [
-      "Black spot is a common fungal disease 🍂"
-    ],
-    "cause": "Caused by fungal infection in wet conditions.",
-    "cure": "Use fungicide and remove infected foliage."
-  },
-
-  {
-    "tag": "mosaic_virus",
-    "patterns": [
-      "yellow green patches",
-      "mosaic virus",
-      "patchy leaves",
-      "mottled leaves"
-    ],
-    "responses": [
-      "Mosaic virus causes patchy discoloration on leaves 🌱"
-    ],
-    "cause": "Spread by infected insects or contaminated tools.",
-    "cure": "Remove infected plants and disinfect tools."
-  },
-
-  {
-    "tag": "bacterial_spot",
-    "patterns": [
-      "bacterial spot",
-      "tiny dark spots",
-      "small black spots",
-      "water soaked spots"
-    ],
-    "responses": [
-      "Bacterial spot causes small dark lesions 🌿"
-    ],
-    "cause": "Caused by bacteria spreading through water.",
-    "cure": "Avoid overhead watering and apply bactericide."
-  },
-
-  {
-    "tag": "downy_mildew",
-    "patterns": [
-      "downy mildew",
-      "fuzzy growth under leaves",
-      "yellow patches",
-      "grey fuzz under leaves"
-    ],
-    "responses": [
-      "Downy mildew causes yellow patches and fuzzy growth 🍂"
-    ],
-    "cause": "Caused by fungal-like pathogens in humid weather.",
-    "cure": "Improve airflow and apply fungicide."
-  },
-
-  {
-    "tag": "spider_mites",
-    "patterns": [
-      "tiny webs on leaves",
-      "spider mites",
-      "webs on plant",
-      "small insects on leaves"
-    ],
-    "responses": [
-      "Spider mites suck sap and weaken plants 🌱"
-    ],
-    "cause": "Usually occurs in hot and dry conditions.",
-    "cure": "Spray neem oil or insecticidal soap."
-  },
-
-  {
-    "tag": "nutrient_deficiency",
-    "patterns": [
-      "pale leaves",
-      "light green leaves",
-      "slow plant growth",
-      "plant not growing"
-    ],
-    "responses": [
-      "Your plant may have nutrient deficiency 🌿"
-    ],
-    "cause": "Lack of nitrogen, potassium, or magnesium.",
-    "cure": "Use balanced fertilizer regularly."
-  },
-
-  {
-    "tag": "sunburn",
-    "patterns": [
-      "burnt leaves",
-      "scorched leaves",
-      "leaf burn",
-      "brown crispy leaves"
-    ],
-    "responses": [
-      "Your plant may have sunburn damage ☀️"
-    ],
-    "cause": "Too much direct sunlight or heat exposure.",
-    "cure": "Move plant to partial shade and water properly."
-  },
-
-  {
-    "tag": "overwatering",
-    "patterns": [
-      "soil too wet",
-      "overwatered plant",
-      "wet soil",
-      "yellow soggy leaves"
-    ],
-    "responses": [
-      "Overwatering can suffocate plant roots 🌱"
-    ],
-    "cause": "Excess watering reduces oxygen in soil.",
-    "cure": "Allow soil to dry before watering again."
-  },
-
-  {
-    "tag": "underwatering",
-    "patterns": [
-      "dry soil",
-      "plant thirsty",
-      "crispy leaves",
-      "soil very dry"
-    ],
-    "responses": [
-      "Your plant may be underwatered 💧"
-    ],
-    "cause": "Insufficient watering and dry conditions.",
-    "cure": "Water deeply and maintain soil moisture."
-  },
-
-  {
-    "tag": "aphids",
-    "patterns": [
-      "small green insects",
-      "aphids on leaves",
-      "sticky leaves",
-      "bugs on plant"
-    ],
-    "responses": [
-      "Aphids suck sap and weaken plants 🐛"
-    ],
-    "cause": "Aphid infestation spreads quickly.",
-    "cure": "Use neem oil or insecticidal soap."
-  },
-
-  {
-    "tag": "fusarium_wilt",
-    "patterns": [
-      "fusarium wilt",
-      "yellow wilting leaves",
-      "plant wilting suddenly",
-      "wilting from bottom"
-    ],
-    "responses": [
-      "Fusarium wilt blocks water transport in plants 🌿"
-    ],
-    "cause": "Caused by soil-borne fungal infection.",
-    "cure": "Remove infected plants and improve soil health."
-  },
-
-  {
-    "tag": "early_blight",
-    "patterns": [
-      "early blight",
-      "brown rings on leaves",
-      "target-like spots",
-      "dark concentric spots"
-    ],
-    "responses": [
-      "Early blight commonly affects tomatoes 🍅"
-    ],
-    "cause": "Caused by fungal infection in warm humid weather.",
-    "cure": "Apply fungicide and avoid leaf wetness."
-  },
-
-  {
-    "tag": "late_blight",
-    "patterns": [
-      "late blight",
-      "rapid plant decay",
-      "rotting leaves",
-      "dark wet spots"
-    ],
-    "responses": [
-      "Late blight spreads rapidly in wet weather 🌧️"
-    ],
-    "cause": "Caused by fungal-like pathogen.",
-    "cure": "Remove infected plants immediately."
-  },
-  {
-  "tag": "ask_cure",
-  "patterns": [
-    "what should i do",
-    "how to fix it",
-    "how to cure",
-    "treatment",
-    "solution"
-  ],
-  "responses": [
-    "Please tell me the symptoms or disease name 🌱"
-  ]
-},
+    {
+      "tag": "plant_problem",
+      "patterns": [
+        "plant problem",
+        "my plant has a problem",
+        "plant issue",
+        "something is wrong with my plant",
+        "my plant is sick",
+        "plant disease",
+        "help with my plant",
+        "leaf problem",
+        "my plant looks bad",
+        "my plant is dying",
+        "there are spots on leaves",
+        "leaves are falling",
+        "plant not growing",
+        "my leaf is brown",
+        "my plant looks unhealthy"
+      ],
+      "responses": [
+        "I can help 🌱 Describe the symptoms you see, or upload a clear image of the affected plant or leaf."
+      ]
+    },
 
     {
       "tag": "healthy",
-      "patterns": ["healthy plant", "no disease", "plant looks fine"],
-      "responses": ["Your plant looks healthy 🌿", "No disease detected, keep taking care!"]
+      "patterns": [
+        "healthy plant",
+        "plant is healthy",
+        "no disease",
+        "plant looks fine",
+        "plant looks healthy",
+        "healthy leaves",
+        "is my plant healthy",
+        "my plant looks normal"
+      ],
+      "responses": [
+        "Your plant appears healthy 🌿 Keep providing proper sunlight, water, nutrients, and airflow.",
+        "No obvious disease symptoms were described. Keep monitoring your plant regularly 🌱"
+      ]
+    },
+
+    {
+      "tag": "yellow_leaves",
+      "patterns": [
+        "yellow leaves",
+        "leaves are yellow",
+        "leaf turning yellow",
+        "yellowing leaves",
+        "yellow plant",
+        "yellow plants",
+        "plant is yellow",
+        "my plant is yellow",
+        "plant turning yellow",
+        "entire plant yellow",
+        "why are my leaves yellow",
+        "leaves becoming yellow"
+      ],
+      "responses": [
+        "Yellow leaves can be associated with overwatering, nutrient deficiency, poor drainage, or disease 🌱"
+      ],
+      "cause": "Yellowing can have several causes, including excess water, nutrient deficiency, poor drainage, or disease.",
+      "cure": "Check the soil moisture and drainage first. Avoid excessive watering and provide appropriate nutrients if deficiency is suspected."
+    },
+
+    {
+      "tag": "brown_spots",
+      "patterns": [
+        "brown spots",
+        "brown spots on leaves",
+        "leaf has brown spots",
+        "brown patches on leaves",
+        "brown marks on leaves",
+        "spots on leaves",
+        "why are there brown spots",
+        "brown leaves with spots"
+      ],
+      "responses": [
+        "Brown spots can be caused by fungal or bacterial diseases, moisture problems, or environmental stress 🍂"
+      ],
+      "cause": "Possible causes include fungal infection, bacterial infection, excess moisture, or environmental stress.",
+      "cure": "Remove severely affected leaves, avoid unnecessary leaf wetness, improve airflow, and identify the specific disease before applying treatment."
+    },
+
+    {
+      "tag": "black_spot",
+      "patterns": [
+        "black spot",
+        "black spots",
+        "black spots on leaves",
+        "dark spots on leaves",
+        "black patches",
+        "black marks on leaves",
+        "leaf has black marks",
+        "what is black spot",
+        "what causes black spot",
+        "black leaf spots"
+      ],
+      "responses": [
+        "Black spot commonly refers to a fungal leaf disease that produces dark spots on leaves 🍂",
+        "Black spots on leaves may indicate a fungal disease, although the exact cause depends on the plant and symptoms."
+      ],
+      "cause": "Black spot symptoms are commonly associated with fungal infection and favorable humid or wet conditions.",
+      "cure": "Remove badly infected leaves, improve airflow, avoid unnecessary overhead watering, and use an appropriate fungicide if the disease is confirmed."
     },
 
     {
       "tag": "powdery_mildew",
-      "patterns": ["powdery mildew", "white powder on leaves", "white spots on plant"],
+      "patterns": [
+        "powdery mildew",
+        "white powder on leaves",
+        "white fungus on plant",
+        "white spots on leaves",
+        "powder on leaves",
+        "white coating on leaves",
+        "white fungal growth",
+        "leaves covered in white powder",
+        "white dusty leaves"
+      ],
       "responses": [
-        "Powdery mildew appears as white powder on leaves.",
-        "It spreads in humid conditions."
-      ]
+        "Powdery mildew appears as a white powder-like coating on leaves and other plant surfaces 🌱"
+      ],
+      "cause": "Powdery mildew is caused by fungal pathogens and commonly develops under favorable humidity and airflow conditions.",
+      "cure": "Remove heavily affected leaves, improve airflow, avoid excessive humidity, and use an appropriate fungicide when necessary."
     },
 
     {
       "tag": "rust_disease",
-      "patterns": ["rust disease", "orange spots on leaves", "brown rust spots"],
+      "patterns": [
+        "rust disease",
+        "rust on leaves",
+        "orange spots on leaves",
+        "brown rust spots",
+        "rusty spots",
+        "orange patches on leaves",
+        "orange powder on leaves",
+        "rust fungus"
+      ],
       "responses": [
-        "Rust disease causes orange or brown spots on leaves.",
-        "It spreads quickly in humid environments."
-      ]
+        "Rust disease can produce orange, yellow, or brown rust-like spots on leaves 🍁"
+      ],
+      "cause": "Rust diseases are caused by fungal pathogens and are often favored by moisture and humid conditions.",
+      "cure": "Remove heavily infected leaves, improve airflow, avoid prolonged leaf wetness, and use an appropriate fungicide if required."
     },
 
     {
       "tag": "leaf_blight",
-      "patterns": ["leaf blight", "brown leaf edges", "dry leaf tips"],
+      "patterns": [
+        "leaf blight",
+        "brown leaf edges",
+        "dry leaf tips",
+        "dry brown leaf edges",
+        "leaf edges turning brown",
+        "dry leaves",
+        "leaves drying",
+        "blight on leaves"
+      ],
       "responses": [
-        "Leaf blight causes browning and drying of leaves.",
-        "It can be fungal or bacterial."
-      ]
+        "Leaf blight can cause brown, dry, or damaged areas on leaves 🍂"
+      ],
+      "cause": "Leaf blight can result from fungal or bacterial pathogens depending on the plant and disease.",
+      "cure": "Remove severely infected leaves, avoid excessive leaf wetness, improve airflow, and use appropriate disease control."
     },
 
     {
       "tag": "bacterial_spot",
-      "patterns": ["bacterial spot", "small dark spots on leaves"],
+      "patterns": [
+        "bacterial spot",
+        "small dark spots on leaves",
+        "tiny dark spots",
+        "small black spots",
+        "water soaked spots",
+        "bacterial spots",
+        "dark lesions on leaves",
+        "spots caused by bacteria"
+      ],
       "responses": [
-        "Bacterial spot causes small dark lesions.",
-        "It spreads through water and tools."
-      ]
+        "Bacterial spot can produce small dark or water-soaked lesions on leaves 🌿"
+      ],
+      "cause": "Bacterial pathogens can spread through contaminated water, tools, plant material, and favorable wet conditions.",
+      "cure": "Remove severely affected leaves, avoid overhead watering, sanitize tools, and use appropriate bacterial disease management."
     },
 
     {
       "tag": "early_blight",
-      "patterns": ["early blight", "brown rings on leaves"],
+      "patterns": [
+        "early blight",
+        "brown rings on leaves",
+        "target like spots",
+        "target-like spots",
+        "dark concentric spots",
+        "concentric rings on leaves",
+        "tomato early blight",
+        "potato early blight"
+      ],
       "responses": [
-        "Early blight causes concentric rings on leaves.",
-        "Common in tomatoes and potatoes."
-      ]
+        "Early blight commonly produces dark lesions with concentric ring patterns on leaves 🍅"
+      ],
+      "cause": "Early blight is associated with fungal infection and is favored by warm, humid conditions.",
+      "cure": "Remove infected plant material, improve airflow, avoid unnecessary leaf wetness, and apply an appropriate fungicide when needed."
     },
 
     {
       "tag": "late_blight",
-      "patterns": ["late blight", "plant rotting fast"],
+      "patterns": [
+        "late blight",
+        "plant rotting fast",
+        "black watery spots",
+        "rapid plant decay",
+        "rotting leaves",
+        "dark wet spots",
+        "tomato late blight",
+        "potato late blight"
+      ],
       "responses": [
-        "Late blight causes rapid plant decay.",
-        "Spreads fast in wet weather."
-      ]
+        "Late blight can spread rapidly and cause dark, water-soaked damage to leaves and stems 🌧️"
+      ],
+      "cause": "Late blight is caused by a water-mold-like pathogen and is favored by cool, wet conditions.",
+      "cure": "Remove severely infected plant material, reduce prolonged leaf wetness, and use appropriate disease management promptly."
     },
 
     {
       "tag": "leaf_mold",
-      "patterns": ["leaf mold", "yellow spots underside leaves"],
+      "patterns": [
+        "leaf mold",
+        "yellow patches on leaves",
+        "fuzzy mold under leaves",
+        "yellow spots underside leaves",
+        "mold under leaves",
+        "fuzzy growth under leaves",
+        "tomato leaf mold"
+      ],
       "responses": [
-        "Leaf mold causes yellow patches and fuzzy growth.",
-        "Common in humid environments."
-      ]
+        "Leaf mold can cause yellow patches on the upper leaf surface and fuzzy growth underneath the leaves 🌱"
+      ],
+      "cause": "Leaf mold is associated with fungal infection and humid conditions.",
+      "cure": "Improve ventilation, reduce excessive humidity, remove badly affected leaves, and use appropriate fungicide when required."
     },
 
     {
       "tag": "septoria_leaf_spot",
-      "patterns": ["septoria leaf spot", "tiny brown spots leaves"],
+      "patterns": [
+        "septoria leaf spot",
+        "tiny brown spots",
+        "tiny brown spots leaves",
+        "dark bordered spots",
+        "small brown lesions",
+        "septoria",
+        "tomato septoria"
+      ],
       "responses": [
-        "Septoria causes small brown spots with dark borders.",
-        "It reduces plant productivity."
-      ]
+        "Septoria leaf spot produces small brown lesions that may have darker borders 🍂"
+      ],
+      "cause": "Septoria leaf spot is caused by fungal infection and is commonly favored by wet conditions.",
+      "cure": "Remove infected leaves, avoid overhead watering, improve airflow, and use appropriate fungicide if necessary."
     },
 
     {
       "tag": "spider_mites",
-      "patterns": ["spider mites", "tiny webs on leaves"],
+      "patterns": [
+        "spider mites",
+        "tiny webs on leaves",
+        "webs on plant",
+        "small insects on leaves",
+        "yellow specks on leaves",
+        "mites on plant",
+        "tiny bugs on leaves",
+        "spider web on plant"
+      ],
       "responses": [
-        "Spider mites cause yellowing and tiny webs.",
-        "They suck plant sap."
-      ]
+        "Spider mites are tiny pests that feed on plant sap and can cause yellow speckling and fine webbing 🌱"
+      ],
+      "cause": "Spider mite infestations are often favored by hot and dry conditions.",
+      "cure": "Wash affected foliage when appropriate, remove heavily infested leaves, and consider insecticidal soap or another suitable mite-control treatment."
     },
 
     {
       "tag": "target_spot",
-      "patterns": ["target spot", "circular spots leaves"],
+      "patterns": [
+        "target spot",
+        "circular leaf spots",
+        "ring shaped spots",
+        "circular spots leaves",
+        "target-like lesions",
+        "round spots on leaves",
+        "tomato target spot"
+      ],
       "responses": [
-        "Target spot causes circular lesions.",
-        "It spreads in warm climates."
-      ]
+        "Target spot produces circular or target-like lesions on leaves 🍂"
+      ],
+      "cause": "Target spot is associated with fungal pathogens and can develop under warm and humid conditions.",
+      "cure": "Remove affected foliage, improve airflow, reduce prolonged leaf wetness, and use appropriate fungicide when necessary."
     },
 
     {
       "tag": "mosaic_virus",
-      "patterns": ["mosaic virus", "yellow green patches"],
+      "patterns": [
+        "mosaic virus",
+        "yellow green patches",
+        "mottled leaves",
+        "patchy leaves",
+        "mosaic pattern on leaves",
+        "yellow green mosaic",
+        "leaves have mosaic pattern"
+      ],
       "responses": [
-        "Mosaic virus causes patchy leaf discoloration.",
-        "It affects plant growth."
-      ]
+        "Mosaic virus symptoms can include patchy green and yellow discoloration of leaves 🌱"
+      ],
+      "cause": "Plant viruses can spread through infected plant material, insect vectors, and contaminated tools depending on the virus.",
+      "cure": "Remove severely infected plants when appropriate, control insect vectors, disinfect tools, and use healthy planting material."
     },
 
     {
       "tag": "leaf_curl_virus",
-      "patterns": ["leaf curl virus", "leaves curling up"],
+      "patterns": [
+        "leaf curl virus",
+        "leaves curling up",
+        "twisted leaves",
+        "curled leaves virus",
+        "yellow curled leaves",
+        "leaf curl disease",
+        "tomato leaf curl"
+      ],
       "responses": [
-        "Leaf curl virus causes leaf curling and yellowing.",
-        "Spread by insects like whiteflies."
-      ]
+        "Leaf curl diseases can cause curling, distortion, and yellowing of leaves 🌿"
+      ],
+      "cause": "Some leaf curl diseases are caused by viruses and may be spread by insect vectors such as whiteflies.",
+      "cure": "Control insect vectors, remove severely infected plants when appropriate, and maintain healthy plants."
     },
-
-  {
-  "tag": "black_spot",
-  "patterns": ["black spot", "dark spots on leaves"],
-  "responses": [
-    "Black spot is a fungal disease causing dark spots on leaves."
-  ],
-  "cause": "Caused by fungal infection in humid conditions.",
-  "cure": "Use fungicide and remove infected leaves."
-},
 
     {
       "tag": "downy_mildew",
-      "patterns": ["downy mildew", "fuzzy growth under leaves"],
+      "patterns": [
+        "downy mildew",
+        "fuzzy growth under leaves",
+        "yellow patches",
+        "grey fuzz under leaves",
+        "fuzzy underside leaves",
+        "mildew under leaves",
+        "gray fuzz on leaves"
+      ],
       "responses": [
-        "Downy mildew causes yellow patches and fuzzy growth.",
-        "Common in cool humid conditions."
-      ]
+        "Downy mildew can cause yellow patches and fuzzy growth on the underside of leaves 🍂"
+      ],
+      "cause": "Downy mildew is caused by fungus-like pathogens and is favored by cool, humid, and wet conditions.",
+      "cure": "Improve airflow, reduce prolonged leaf wetness, remove affected leaves, and use appropriate disease control when necessary."
     },
-    {
-  "tag": "greeting",
-  "patterns": [
-    "hi",
-    "hii",
-    "hello",
-    "hey",
-    "good morning",
-    "good evening"
-  ],
-  "responses": [
-    "Hello 🌿 How can I help your plant today?",
-    "Hi there 🌱 Tell me your plant problem.",
-    "Hey 🌿 Need help with plant disease detection?"
-  ]
-},
 
     {
       "tag": "fusarium_wilt",
-      "patterns": ["fusarium wilt", "plant wilting suddenly"],
+      "patterns": [
+        "fusarium wilt",
+        "plant wilting suddenly",
+        "yellow wilt",
+        "yellow wilting leaves",
+        "wilting from bottom",
+        "fusarium",
+        "plant suddenly wilting"
+      ],
       "responses": [
-        "Fusarium wilt blocks water flow in plants.",
-        "It causes yellowing and wilting."
-      ]
+        "Fusarium wilt can interfere with water movement in plants and cause yellowing and wilting 🌿"
+      ],
+      "cause": "Fusarium wilt is associated with soil-borne fungal pathogens.",
+      "cure": "Remove severely affected plants, maintain good soil health, use resistant varieties when available, and practice crop rotation."
     },
 
     {
       "tag": "verticillium_wilt",
-      "patterns": ["verticillium wilt", "wilting one side plant"],
+      "patterns": [
+        "verticillium wilt",
+        "one side wilting",
+        "uneven wilting",
+        "wilting one side plant",
+        "verticillium",
+        "plant wilting on one side"
+      ],
       "responses": [
-        "Verticillium wilt causes uneven wilting.",
-        "It spreads through soil."
-      ]
+        "Verticillium wilt can cause uneven or one-sided wilting of plants 🌱"
+      ],
+      "cause": "Verticillium wilt is associated with soil-borne fungal pathogens.",
+      "cure": "Remove severely affected plants, maintain soil health, rotate crops where appropriate, and use resistant varieties when available."
     },
 
     {
       "tag": "soft_rot",
-      "patterns": ["soft rot", "mushy plant tissue"],
+      "patterns": [
+        "soft rot",
+        "mushy stem",
+        "rotting plant tissue",
+        "mushy plant tissue",
+        "soft plant tissue",
+        "watery plant tissue",
+        "plant tissue is rotting"
+      ],
       "responses": [
-        "Soft rot makes plant tissue soft and watery.",
-        "Caused by bacteria."
-      ]
+        "Soft rot causes plant tissue to become soft, watery, and damaged 🌱"
+      ],
+      "cause": "Soft rot is commonly associated with bacterial infection and excessive moisture.",
+      "cure": "Remove affected tissue, improve drainage, reduce excessive moisture, and keep tools and surfaces clean."
     },
 
     {
       "tag": "fire_blight",
-      "patterns": ["fire blight", "burnt leaves plant"],
+      "patterns": [
+        "fire blight",
+        "burnt leaves",
+        "blackened branches",
+        "burnt plant",
+        "branches look burnt",
+        "fire like damage"
+      ],
       "responses": [
-        "Fire blight makes plants look burnt.",
-        "Spreads quickly in warm conditions."
+        "Fire blight can make leaves and branches appear scorched or burnt 🔥🌿"
+      ],
+      "cause": "Fire blight is a bacterial disease that can spread under favorable warm and wet conditions.",
+      "cure": "Prune affected branches appropriately, disinfect tools between cuts, and remove severely affected material."
+    },
+
+    {
+      "tag": "root_rot",
+      "patterns": [
+        "root rot",
+        "roots turning black",
+        "wilting roots",
+        "roots are black",
+        "plant roots rotting",
+        "roots smell bad",
+        "rotting roots",
+        "root disease"
+      ],
+      "responses": [
+        "Root rot damages roots and can cause yellowing, wilting, and poor plant growth 🌱"
+      ],
+      "cause": "Root rot is commonly associated with excessive moisture and poor soil drainage.",
+      "cure": "Improve drainage, reduce excessive watering, remove severely damaged roots when repotting is appropriate, and use healthy soil."
+    },
+
+    {
+      "tag": "anthracnose",
+      "patterns": [
+        "anthracnose",
+        "sunken dark spots",
+        "dead patches on leaves",
+        "dark sunken lesions",
+        "anthracnose disease",
+        "dark spots on fruit",
+        "sunken spots"
+      ],
+      "responses": [
+        "Anthracnose can cause dark, sunken lesions on leaves, stems, or fruit 🍂"
+      ],
+      "cause": "Anthracnose is associated with fungal pathogens and can spread under wet conditions.",
+      "cure": "Remove infected plant material, avoid unnecessary leaf wetness, improve airflow, and use appropriate fungicide when necessary."
+    },
+
+    {
+      "tag": "leaf_curl",
+      "patterns": [
+        "leaves curling",
+        "curled leaves",
+        "leaf curl",
+        "leaves folding",
+        "leaves are curling",
+        "leaves are twisted",
+        "leaf curling"
+      ],
+      "responses": [
+        "Leaf curling can result from viruses, pests, heat stress, underwatering, or other environmental conditions 🌿"
+      ],
+      "cause": "Possible causes include viral infection, insect damage, heat stress, water stress, or environmental conditions.",
+      "cure": "Check watering, temperature, pests, and leaf symptoms before choosing a treatment."
+    },
+
+    {
+      "tag": "nutrient_deficiency",
+      "patterns": [
+        "pale leaves",
+        "light green leaves",
+        "slow plant growth",
+        "plant not growing",
+        "nutrient deficiency",
+        "plant lacks nutrients",
+        "leaves are pale",
+        "plant growth is slow"
+      ],
+      "responses": [
+        "Your plant may be experiencing a nutrient deficiency 🌿"
+      ],
+      "cause": "Nutrient deficiencies can result from insufficient nutrients, poor soil conditions, or problems with nutrient availability.",
+      "cure": "Check soil conditions and use an appropriate balanced fertilizer rather than applying excessive nutrients."
+    },
+
+    {
+      "tag": "sunburn",
+      "patterns": [
+        "burnt leaves",
+        "scorched leaves",
+        "leaf burn",
+        "brown crispy leaves",
+        "sunburn",
+        "sun damage",
+        "leaves burned by sun",
+        "plant getting too much sun"
+      ],
+      "responses": [
+        "Your plant may have sun or heat damage ☀️🌿"
+      ],
+      "cause": "Excessive direct sunlight or high temperatures can damage leaf tissue.",
+      "cure": "Provide suitable shade or gradually acclimate the plant to stronger sunlight and maintain appropriate watering."
+    },
+
+    {
+      "tag": "overwatering",
+      "patterns": [
+        "soil too wet",
+        "overwatered plant",
+        "wet soil",
+        "yellow soggy leaves",
+        "too much water",
+        "watering too much",
+        "plant overwatered",
+        "soil stays wet"
+      ],
+      "responses": [
+        "Overwatering can reduce oxygen around plant roots and lead to root problems 🌱"
+      ],
+      "cause": "Excess water can reduce oxygen in the root zone and contribute to root disease.",
+      "cure": "Allow the soil to dry appropriately between watering and improve drainage."
+    },
+
+    {
+      "tag": "underwatering",
+      "patterns": [
+        "dry soil",
+        "plant thirsty",
+        "crispy leaves",
+        "soil very dry",
+        "underwatered plant",
+        "not enough water",
+        "plant needs water",
+        "dry leaves"
+      ],
+      "responses": [
+        "Your plant may be experiencing water stress due to insufficient moisture 💧"
+      ],
+      "cause": "Underwatering or prolonged dry conditions can cause wilting and crispy leaves.",
+      "cure": "Water the plant appropriately and maintain suitable soil moisture without causing waterlogging."
+    },
+
+    {
+      "tag": "aphids",
+      "patterns": [
+        "small green insects",
+        "aphids on leaves",
+        "sticky leaves",
+        "bugs on plant",
+        "aphids",
+        "tiny green bugs",
+        "insects on leaves",
+        "bugs under leaves"
+      ],
+      "responses": [
+        "Aphids are small sap-feeding insects that can weaken plants and cause distorted growth 🐛"
+      ],
+      "cause": "Aphid infestation occurs when aphids colonize young shoots, leaves, and other plant parts.",
+      "cure": "Wash aphids from plants when appropriate and consider insecticidal soap or another suitable pest-control method."
+    },
+
+    {
+      "tag": "ask_cure",
+      "patterns": [
+        "what should i do",
+        "how to fix it",
+        "how to cure",
+        "what is the treatment",
+        "treatment",
+        "solution",
+        "how can i treat it",
+        "how do i cure this",
+        "how to treat plant disease",
+        "what treatment should i use",
+        "how can i fix my plant"
+      ],
+      "responses": [
+        "Please tell me the disease name or describe the symptoms, and I can provide possible treatment information 🌱"
+      ]
+    },
+
+    {
+      "tag": "ask_cause",
+      "patterns": [
+        "what caused this",
+        "what causes this disease",
+        "why is my plant sick",
+        "why did this happen",
+        "cause of disease",
+        "what is the cause",
+        "why are my leaves damaged",
+        "why is my plant dying"
+      ],
+      "responses": [
+        "Tell me the disease name or symptoms and I can explain the possible cause 🌿"
+      ]
+    },
+
+    {
+      "tag": "ask_disease",
+      "patterns": [
+        "what disease is this",
+        "which disease is this",
+        "what is wrong with my plant",
+        "identify my plant disease",
+        "identify disease",
+        "what disease does my plant have",
+        "is this a disease",
+        "can you identify this disease"
+      ],
+      "responses": [
+        "Upload a clear image of the affected plant or leaf and I will try to identify the disease using the trained model 🌱"
+      ]
+    },
+
+    {
+      "tag": "ask_symptoms",
+      "patterns": [
+        "what are the symptoms",
+        "symptoms of this disease",
+        "how does this disease look",
+        "what does the disease look like",
+        "signs of disease",
+        "plant disease symptoms",
+        "how can i identify the disease"
+      ],
+      "responses": [
+        "Plant disease symptoms can include spots, discoloration, wilting, curling, mold, lesions, or abnormal growth. Tell me what you see on your plant 🌿"
+      ]
+    },
+
+    {
+      "tag": "ask_prediction",
+      "patterns": [
+        "what did the model predict",
+        "what is the prediction",
+        "show prediction",
+        "prediction result",
+        "what disease was detected",
+        "what did you detect",
+        "detected disease"
+      ],
+      "responses": [
+        "Please check the prediction result shown above the chatbot after uploading your plant image 🌱"
+      ]
+    },
+
+    {
+      "tag": "background_question",
+      "patterns": [
+        "can i upload any image",
+        "does background matter",
+        "what kind of image should i upload",
+        "what image should i use",
+        "best image for prediction",
+        "how should i take the photo",
+        "can i use a google image",
+        "can i upload a photo from google"
+      ],
+      "responses": [
+        "For the best prediction 🌿, use a clear image where the affected leaf or plant is visible and reasonably well lit. Images with complex backgrounds may be harder for the model to classify accurately."
+      ]
+    },
+
+    {
+      "tag": "plant_identification",
+      "patterns": [
+        "what plant is this",
+        "identify plant",
+        "plant name",
+        "which plant is this",
+        "can you identify the plant",
+        "what is the name of this plant"
+      ],
+      "responses": [
+        "The current model is designed primarily for plant disease classification rather than general plant identification. 🌱"
+      ]
+    },
+
+    {
+      "tag": "model_information",
+      "patterns": [
+        "what model do you use",
+        "which model is used",
+        "how does the model work",
+        "what algorithm do you use",
+        "tell me about the model",
+        "what is svm",
+        "how does prediction work"
+      ],
+      "responses": [
+        "The application uses a machine-learning image classification model to analyze plant images and predict the most likely disease class. 🌱"
+      ]
+    },
+
+    {
+      "tag": "accuracy_question",
+      "patterns": [
+        "what is the accuracy",
+        "model accuracy",
+        "how accurate is the model",
+        "is the prediction accurate",
+        "accuracy of prediction",
+        "how reliable is this"
+      ],
+      "responses": [
+        "The displayed prediction is generated by the trained machine-learning model. Accuracy depends on the training data, image quality, plant type, disease, and similarity between the uploaded image and the training images."
+      ]
+    },
+
+    {
+      "tag": "image_quality",
+      "patterns": [
+        "image is blurry",
+        "blurry image",
+        "bad image",
+        "dark image",
+        "image is too dark",
+        "poor quality image",
+        "photo is unclear"
+      ],
+      "responses": [
+        "For better results 🌿, use a clear, well-lit image with the affected leaf visible and avoid excessive blur."
+      ]
+    },
+
+    {
+      "tag": "apple_scab",
+      "patterns": [
+        "apple scab",
+        "apple disease",
+        "apple has brown spots",
+        "apple leaves have spots",
+        "scab on apple leaves",
+        "apple scab disease"
+      ],
+      "responses": [
+        "Apple scab is a disease that can produce olive, brown, or dark lesions on apple leaves and fruit 🍎"
+      ],
+      "cause": "Apple scab is caused by a fungal pathogen and is favored by wet conditions.",
+      "cure": "Remove affected plant material, maintain good airflow, and use appropriate disease-management practices."
+    },
+
+    {
+      "tag": "apple_cedar_rust",
+      "patterns": [
+        "apple cedar rust",
+        "cedar apple rust",
+        "apple rust",
+        "rust on apple leaves",
+        "orange spots on apple leaves"
+      ],
+      "responses": [
+        "Cedar apple rust can cause yellow or orange lesions on apple foliage 🍎"
+      ],
+      "cause": "Cedar apple rust is caused by a fungal pathogen that requires compatible host plants during its life cycle.",
+      "cure": "Remove heavily affected foliage when appropriate and follow recommended disease-management practices."
+    },
+
+    {
+      "tag": "apple_healthy",
+      "patterns": [
+        "healthy apple plant",
+        "apple healthy",
+        "healthy apple tree",
+        "apple has no disease"
+      ],
+      "responses": [
+        "The apple plant appears healthy based on the selected healthy class 🌿🍎"
+      ]
+    },
+
+    {
+      "tag": "background_without_leaves",
+      "patterns": [
+        "background without leaves",
+        "background image",
+        "no leaves in image",
+        "empty plant background",
+        "background only"
+      ],
+      "responses": [
+        "The image appears to belong to the background class rather than a specific plant disease. 🌿 Try uploading an image containing a clearly visible plant leaf."
+      ]
+    },
+
+    {
+      "tag": "blueberry_healthy",
+      "patterns": [
+        "healthy blueberry",
+        "blueberry healthy",
+        "blueberry plant healthy",
+        "blueberry has no disease"
+      ],
+      "responses": [
+        "The blueberry plant appears healthy based on the selected class 🌿"
+      ]
+    },
+
+    {
+      "tag": "cherry_powdery_mildew",
+      "patterns": [
+        "cherry powdery mildew",
+        "powdery mildew on cherry",
+        "cherry leaves white powder",
+        "cherry mildew"
+      ],
+      "responses": [
+        "Powdery mildew on cherry plants can produce a white powder-like growth on leaves and shoots 🍒"
+      ],
+      "cause": "Caused by fungal pathogens and favored by suitable humidity and environmental conditions.",
+      "cure": "Improve airflow, remove severely affected material, and use appropriate fungicide when necessary."
+    },
+
+    {
+      "tag": "corn_common_rust",
+      "patterns": [
+        "corn common rust",
+        "maize rust",
+        "rust on corn",
+        "orange spots on corn leaves",
+        "corn rust disease"
+      ],
+      "responses": [
+        "Common rust of corn produces rust-colored pustules on corn leaves 🌽"
+      ],
+      "cause": "Common rust is caused by a fungal pathogen.",
+      "cure": "Use resistant varieties where available and follow appropriate crop disease-management practices."
+    },
+
+    {
+      "tag": "corn_cercospora",
+      "patterns": [
+        "corn cercospora",
+        "gray leaf spot",
+        "grey leaf spot corn",
+        "cercospora leaf spot",
+        "gray leaf spot disease",
+        "corn gray leaf spot"
+      ],
+      "responses": [
+        "Corn gray leaf spot can produce rectangular gray or brown lesions on leaves 🌽"
+      ],
+      "cause": "Gray leaf spot is associated with a fungal pathogen and can be favored by warm, humid conditions.",
+      "cure": "Use resistant varieties where available, manage crop residue appropriately, and follow recommended disease-management practices."
+    },
+
+    {
+      "tag": "corn_northern_leaf_blight",
+      "patterns": [
+        "corn northern leaf blight",
+        "northern leaf blight",
+        "corn leaf blight",
+        "maize northern leaf blight",
+        "long lesions on corn leaves"
+      ],
+      "responses": [
+        "Northern leaf blight can produce long gray-green or brown lesions on corn leaves 🌽"
+      ],
+      "cause": "Northern leaf blight is caused by a fungal pathogen.",
+      "cure": "Use resistant varieties when available and follow recommended crop disease-management practices."
+    },
+
+    {
+      "tag": "corn_healthy",
+      "patterns": [
+        "healthy corn",
+        "healthy maize",
+        "corn plant healthy",
+        "maize plant healthy",
+        "corn has no disease"
+      ],
+      "responses": [
+        "The corn plant appears healthy based on the selected class 🌽🌿"
+      ]
+    },
+
+    {
+      "tag": "grape_black_rot",
+      "patterns": [
+        "grape black rot",
+        "black rot on grapes",
+        "grape black rot disease",
+        "black spots on grape leaves",
+        "grape leaves black spots"
+      ],
+      "responses": [
+        "Grape black rot can cause dark lesions on leaves and fruit and may lead to fruit decay 🍇"
+      ],
+      "cause": "Grape black rot is caused by a fungal pathogen and is favored by wet conditions.",
+      "cure": "Remove infected plant material, improve canopy airflow, and follow recommended fungicide practices."
+    },
+
+    {
+      "tag": "grape_esca",
+      "patterns": [
+        "grape esca",
+        "black measles grape",
+        "grape black measles",
+        "esca disease",
+        "grape leaf esca"
+      ],
+      "responses": [
+        "Esca, sometimes called black measles, is a complex grapevine disease that can produce characteristic leaf and fruit symptoms 🍇"
+      ],
+      "cause": "Esca is associated with several fungal pathogens and can affect grapevine wood and foliage.",
+      "cure": "Management depends on the severity and cause. Remove severely affected material where appropriate and follow vineyard disease-management practices."
+    },
+
+    {
+      "tag": "grape_leaf_blight",
+      "patterns": [
+        "grape leaf blight",
+        "isariopsis leaf spot",
+        "grape isariopsis",
+        "grape leaf spot",
+        "grape leaves blight"
+      ],
+      "responses": [
+        "Grape leaf blight or Isariopsis leaf spot can produce dark lesions on grape leaves 🍇"
+      ],
+      "cause": "The disease is associated with fungal infection and favorable wet conditions.",
+      "cure": "Remove affected foliage when appropriate, improve airflow, and follow recommended fungicide practices."
+    },
+
+    {
+      "tag": "orange_huanglongbing",
+      "patterns": [
+        "orange greening",
+        "huanglongbing",
+        "citrus greening",
+        "orange citrus greening",
+        "yellow orange leaves",
+        "greening disease"
+      ],
+      "responses": [
+        "Citrus greening, also called Huanglongbing, can cause uneven yellowing and decline in citrus plants 🍊"
+      ],
+      "cause": "Huanglongbing is associated with a bacterial pathogen and is spread by psyllid insect vectors.",
+      "cure": "Management focuses on controlling vectors, using healthy planting material, and removing affected trees where recommended."
+    },
+
+    {
+      "tag": "pepper_bacterial_spot",
+      "patterns": [
+        "pepper bacterial spot",
+        "bell pepper bacterial spot",
+        "bacterial spot on pepper",
+        "pepper leaf spots",
+        "pepper black spots"
+      ],
+      "responses": [
+        "Bacterial spot of pepper can cause dark lesions on leaves and fruit 🌶️"
+      ],
+      "cause": "Bacterial pathogens can spread through water, contaminated tools, and infected plant material.",
+      "cure": "Avoid overhead watering, remove severely affected material, sanitize tools, and follow appropriate disease-management practices."
+    },
+
+    {
+      "tag": "potato_early_blight",
+      "patterns": [
+        "potato early blight",
+        "early blight potato",
+        "potato brown rings",
+        "potato leaf spots"
+      ],
+      "responses": [
+        "Potato early blight can cause dark lesions with concentric rings on potato leaves 🥔"
+      ],
+      "cause": "Potato early blight is associated with fungal infection and favorable warm conditions.",
+      "cure": "Remove affected plant material where appropriate and follow recommended fungicide and crop-management practices."
+    },
+
+    {
+      "tag": "potato_late_blight",
+      "patterns": [
+        "potato late blight",
+        "late blight potato",
+        "potato black spots",
+        "potato rotting leaves"
+      ],
+      "responses": [
+        "Potato late blight can cause rapidly developing dark or water-soaked lesions on foliage 🥔"
+      ],
+      "cause": "Late blight is caused by a water-mold-like pathogen and is favored by cool, wet conditions.",
+      "cure": "Remove severely infected material and follow appropriate disease-management practices promptly."
+    },
+
+    {
+      "tag": "soybean_healthy",
+      "patterns": [
+        "healthy soybean",
+        "soybean healthy",
+        "soybean plant healthy",
+        "soybean has no disease"
+      ],
+      "responses": [
+        "The soybean plant appears healthy based on the selected class 🌿"
+      ]
+    },
+
+    {
+      "tag": "squash_powdery_mildew",
+      "patterns": [
+        "squash powdery mildew",
+        "powdery mildew on squash",
+        "squash white powder",
+        "squash leaves white"
+      ],
+      "responses": [
+        "Powdery mildew on squash can produce a white powder-like coating on leaves 🎃"
+      ],
+      "cause": "Powdery mildew is caused by fungal pathogens and can develop under favorable environmental conditions.",
+      "cure": "Improve airflow, remove severely affected leaves, and use appropriate disease-management practices."
+    },
+
+    {
+      "tag": "strawberry_leaf_scorch",
+      "patterns": [
+        "strawberry leaf scorch",
+        "leaf scorch strawberry",
+        "strawberry brown leaves",
+        "strawberry leaf spots",
+        "strawberry leaves burning"
+      ],
+      "responses": [
+        "Strawberry leaf scorch can produce dark or scorched-looking spots on strawberry leaves 🍓"
+      ],
+      "cause": "Leaf scorch symptoms can be associated with fungal disease and favorable environmental conditions.",
+      "cure": "Remove affected foliage when appropriate, improve plant airflow, and follow recommended disease-management practices."
+    },
+
+    {
+      "tag": "tomato_bacterial_spot",
+      "patterns": [
+        "tomato bacterial spot",
+        "bacterial spot tomato",
+        "tomato bacterial disease",
+        "tomato dark spots",
+        "tomato leaf bacterial spots"
+      ],
+      "responses": [
+        "Tomato bacterial spot can cause dark lesions on tomato leaves and fruit 🍅"
+      ],
+      "cause": "Bacterial pathogens can spread through water, contaminated tools, and infected plant material.",
+      "cure": "Avoid overhead watering, remove severely infected material, sanitize tools, and follow appropriate disease-management practices."
+    },
+
+    {
+      "tag": "tomato_spider_mites",
+      "patterns": [
+        "tomato spider mites",
+        "spider mites on tomato",
+        "tomato leaves tiny webs",
+        "tomato leaves yellow specks",
+        "mites on tomato"
+      ],
+      "responses": [
+        "Spider mites can cause yellow speckling, leaf damage, and fine webbing on tomato plants 🍅"
+      ],
+      "cause": "Spider mite infestations are often favored by hot and dry conditions.",
+      "cure": "Inspect the underside of leaves, wash foliage when appropriate, and use suitable mite-control methods."
+    },
+
+    {
+      "tag": "tomato_target_spot",
+      "patterns": [
+        "tomato target spot",
+        "target spot tomato",
+        "tomato circular spots",
+        "tomato ring spots",
+        "tomato target lesions"
+      ],
+      "responses": [
+        "Tomato target spot produces circular or target-like lesions on tomato leaves 🍅"
+      ],
+      "cause": "Target spot is associated with fungal pathogens and favorable warm, humid conditions.",
+      "cure": "Remove affected foliage, improve airflow, reduce prolonged leaf wetness, and use appropriate fungicide when necessary."
+    },
+
+    {
+      "tag": "tomato_yellow_leaf_curl",
+      "patterns": [
+        "tomato yellow leaf curl",
+        "tomato yellow leaf curl virus",
+        "tomato leaf curl virus",
+        "tomato leaves curling",
+        "tomato yellow curled leaves",
+        "tomato yellow leaves and curling"
+      ],
+      "responses": [
+        "Tomato yellow leaf curl can cause yellowing, curling, and reduced growth of tomato leaves 🍅"
+      ],
+      "cause": "Tomato yellow leaf curl is associated with a virus and is commonly spread by whitefly vectors.",
+      "cure": "Control whiteflies, remove severely infected plants when appropriate, and use healthy planting material."
+    },
+
+    {
+      "tag": "unknown_disease",
+      "patterns": [
+        "unknown disease",
+        "not sure what disease",
+        "i don't know the disease",
+        "cannot identify disease",
+        "what disease could this be",
+        "not sure what is wrong"
+      ],
+      "responses": [
+        "I need more information to identify the problem 🌱 Please upload a clear image or describe the symptoms, affected plant, and appearance of the leaves."
       ]
     },
 
     {
       "tag": "default",
-      "patterns": ["hmm", "huh"],
+      "patterns": [
+        "hmm",
+        "huh",
+        "i don't know",
+        "not sure",
+        "something else",
+        "random",
+        "help me"
+      ],
       "responses": [
-        "Can you please ask about plant diseases?",
-        "Try describing symptoms 🌱"
+        "I'm here to help with plant health 🌱 Try describing the symptoms or upload a clear plant image.",
+        "Please tell me what you notice on the plant, such as spots, yellowing, wilting, curling, or mold."
       ]
     }
 
