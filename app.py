@@ -1,10 +1,10 @@
-from flask import Flask, render_template, request, send_from_directory, jsonify, url_for
 import numpy as np
 import json
 import uuid
 import random
 import re
 import os
+from flask import Flask, render_template, request, send_from_directory, jsonify, url_for, send_file
 import sqlite3
 import cv2
 import joblib
@@ -186,6 +186,211 @@ def clear_history():
     conn.commit()
     conn.close()
     return "done"
+
+# =============================
+# REPORT GENERATION
+# =============================
+@app.route('/report.pdf')
+def download_report():
+
+    report_path = os.path.join(app.root_path, "report.pdf")
+
+    # ---------------------------------
+    # If there is no prediction
+    # ---------------------------------
+    if last_prediction is None:
+        return "Please upload a plant image first to generate the report.", 404
+
+    # ---------------------------------
+    # Create PDF
+    # ---------------------------------
+    doc = SimpleDocTemplate(
+        report_path,
+        pagesize=A4,
+        rightMargin=40,
+        leftMargin=40,
+        topMargin=40,
+        bottomMargin=40
+    )
+
+    styles = getSampleStyleSheet()
+
+    title_style = ParagraphStyle(
+        "TitleStyle",
+        parent=styles["Title"],
+        fontSize=20,
+        spaceAfter=20
+    )
+
+    heading_style = ParagraphStyle(
+        "HeadingStyle",
+        parent=styles["Heading2"],
+        fontSize=14,
+        spaceBefore=12,
+        spaceAfter=8
+    )
+
+    normal_style = ParagraphStyle(
+        "NormalStyle",
+        parent=styles["BodyText"],
+        fontSize=11,
+        leading=16
+    )
+
+    story = []
+
+    # ---------------------------------
+    # Title
+    # ---------------------------------
+    story.append(
+        Paragraph(
+            "Plant Disease Prediction Report",
+            title_style
+        )
+    )
+
+    story.append(
+        Paragraph(
+            "AI-Based Plant Disease Detection System",
+            normal_style
+        )
+    )
+
+    story.append(Spacer(1, 15))
+
+    story.append(
+        HRFlowable(
+            width="100%",
+            thickness=1,
+            color=colors.grey
+        )
+    )
+
+    story.append(Spacer(1, 15))
+
+    # ---------------------------------
+    # Prediction
+    # ---------------------------------
+    story.append(
+        Paragraph(
+            "Prediction Result",
+            heading_style
+        )
+    )
+
+    story.append(
+        Paragraph(
+            f"<b>Detected Disease:</b> {last_prediction.get('name', 'Unknown')}",
+            normal_style
+        )
+    )
+
+    story.append(Spacer(1, 8))
+
+    # ---------------------------------
+    # Confidence
+    # ---------------------------------
+    if last_confidence is not None:
+
+        story.append(
+            Paragraph(
+                f"<b>Confidence:</b> {last_confidence}%",
+                normal_style
+            )
+        )
+
+        story.append(Spacer(1, 8))
+
+    # ---------------------------------
+    # Cause
+    # ---------------------------------
+    story.append(
+        Paragraph(
+            "Cause",
+            heading_style
+        )
+    )
+
+    story.append(
+        Paragraph(
+            last_prediction.get(
+                "cause",
+                "Information not available"
+            ),
+            normal_style
+        )
+    )
+
+    # ---------------------------------
+    # Cure
+    # ---------------------------------
+    story.append(
+        Paragraph(
+            "Recommended Treatment",
+            heading_style
+        )
+    )
+
+    story.append(
+        Paragraph(
+            last_prediction.get(
+                "cure",
+                "Information not available"
+            ),
+            normal_style
+        )
+    )
+
+    # ---------------------------------
+    # Add uploaded image
+    # ---------------------------------
+    if last_image_path and os.path.exists(last_image_path):
+
+        story.append(
+            Paragraph(
+                "Analyzed Image",
+                heading_style
+            )
+        )
+
+        try:
+            img = Image(
+                last_image_path,
+                width=3.5 * inch,
+                height=3.5 * inch
+            )
+
+            story.append(img)
+            story.append(Spacer(1, 15))
+
+        except Exception:
+            pass
+
+    # ---------------------------------
+    # Date
+    # ---------------------------------
+    story.append(
+        Paragraph(
+            f"<b>Generated:</b> "
+            f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+            normal_style
+        )
+    )
+
+    # ---------------------------------
+    # Build PDF
+    # ---------------------------------
+    doc.build(story)
+
+    # ---------------------------------
+    # Download PDF
+    # ---------------------------------
+    return send_file(
+        report_path,
+        as_attachment=True,
+        download_name="Plant_Disease_Prediction_Report.pdf",
+        mimetype="application/pdf"
+    )
 
 # =============================
 # UPLOAD (FIXED FULLY)

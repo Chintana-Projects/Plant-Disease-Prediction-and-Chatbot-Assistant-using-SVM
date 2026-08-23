@@ -90,8 +90,8 @@
 <p class="disease-text"><b>Disease:</b> {{prediction['cause']}}</p>
 <p class="cure-text"><b>Cure:</b> {{prediction['cure']}}</p>
 
-<a href="/download-report" class="btn btn-primary download-btn">
-    Download Report
+<a href="{{ url_for('download_report') }}" class="btn btn-primary download-btn">
+    📄 Download Report
 </a>
 
 </div>
